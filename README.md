@@ -12,7 +12,7 @@ The plugin asks for the above three inputs via variants of the following interfa
 
 ## Terms Of Use
 - Plugins built via this plugin's use may not be redistributed without explicit mention of this plugin's use to build them
-- Plugins built via this plugin's use must retain the embedded `__PluginBuilderAttribution__` file
+- Plugins built via this plugin's use must retain the embedded `@__PluginBuilderAttribution__@` file
 - The SpongeSuite-PluginBuilder plugin may not be modified to prevent or otherwise circumvent creation of the attribution file
 
 ## Trivia
