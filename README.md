@@ -6,6 +6,10 @@ PluginBuilder is a plugin which allows one to automatically build Roblox Studio 
 
 Built plugins are output to ReplicatedStorage, titled using the name provided by the user
 
+> [!NOTE]
+> This plugin is now available on roblox! Get it here:
+> https://create.roblox.com/store/asset/128548126878756/SpongeSuite-PluginBuilder
+
 ## Interface
 The plugin asks for the above three inputs via variants of the following interface:  
 ![Preview Of Plugin's Interface](./img/ui_preview.png)
