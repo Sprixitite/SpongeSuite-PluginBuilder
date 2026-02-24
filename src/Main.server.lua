@@ -26,33 +26,35 @@ local function githubAPIToDataModel(repoRoot, repoDirPath, dataModelParent)
 	local folderContents = repoDir:GetContentsInfo()
 	
 	for _, entry in ipairs(folderContents) do
-		if entry.type == "file" then
-			local isModule = (string.match(entry.name, "%.server%.lua$") == nil)
-			local inst = (isModule and Instance.new("ModuleScript")) or Instance.new("Script")
-			local name = string.gsub(entry.name, "%.lua$", ""):gsub("%.server$", "")
-			inst.Name = name
-			inst.Parent = dataModelParent
-			inst:AddTag(`Remote_{repoRoot.Name}`)
-			
-			print(`PluginBuilder : Retrieving file {name}...`)
-			local success, source = repoDir:GetFile(entry.name)
-			
-			if not success then
-				warn(`PluginBuilder : Failed to retrieve file {name} : ` .. source)
-				inst.Source = `error("Failed to retrieve file from remote repository!")`
+		task.spawn(function()
+			if entry.type == "file" then
+				local isModule = (string.match(entry.name, "%.server%.lua$") == nil)
+				local inst = (isModule and Instance.new("ModuleScript")) or Instance.new("Script")
+				local name = string.gsub(entry.name, "%.lua$", ""):gsub("%.server$", "")
+				inst.Name = name
+				inst.Parent = dataModelParent
+				inst:AddTag(`Remote_{repoRoot.Name}`)
+				
+				print(`PluginBuilder : Retrieving file {name}...`)
+				local success, source = repoDir:GetFile(entry.name)
+				
+				if not success then
+					warn(`PluginBuilder : Failed to retrieve file {name} : ` .. source)
+					inst.Source = `error("Failed to retrieve file from remote repository!")`
+				else
+					inst.Source = source
+				end
+			elseif entry.type == "dir" then
+				local f = Instance.new("Folder")
+				f.Name = entry.name
+				f.Parent = dataModelParent
+				f:AddTag(`Remote_{repoRoot.Name}`)
+				
+				githubAPIToDataModel(repoRoot, entry.path, f)
 			else
-				inst.Source = source
+				warn(`PluginBuilder : Encountered remote file of unknown type "{entry.type}"! File will be ignored`)
 			end
-		elseif entry.type == "dir" then
-			local f = Instance.new("Folder")
-			f.Name = entry.name
-			f.Parent = dataModelParent
-			f:AddTag(`Remote_{repoRoot.Name}`)
-			
-			githubAPIToDataModel(repoRoot, entry.path, f)
-		else
-			warn(`PluginBuilder : Encountered remote file of unknown type "{entry.type}"! File will be ignored`)
-		end
+		end)
 	end
 	
 end
