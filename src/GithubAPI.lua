@@ -74,7 +74,7 @@ GithubAPI.Repo.FromElements, GithubAPI.Repo.Validate = newObjectFactory(
 
 function GithubAPI.Repo.FromURL(url)
 	local owner, repoName = string.match(url, "github.com/([^/]+)/([^/]+)")
-	local branch = string.match(url, "github.com/([^/]+)/([^/]+)/tree/([^/]+)")
+	local branch = string.match(url, "github.com/[^/]+/[^/]+/tree/([^/]+)")
 	
 	if branch == nil then branch = "main" end
 	
@@ -86,7 +86,7 @@ function GithubAPI.Repo.FromURL(url)
 end
 
 function GithubAPI.RepoDir.ToString(repoDir)
-	return "[ Github Repo Dir \"" .. repoDir.Path .. "\" in repo \"" .. repoDir.Name .. "\" by \"" .. repoDir.Owner .. "\" ]"
+	return "[ Github Repo Dir \"" .. repoDir.Path .. "\" in repo \"" .. repoDir.Name .. "\" by \"" .. repoDir.Owner .. "\" @ \"" .. repoDir.Branch .. "\" ]"
 end
 
 function GithubAPI.RepoDir.ToContentUrl(repoDir)

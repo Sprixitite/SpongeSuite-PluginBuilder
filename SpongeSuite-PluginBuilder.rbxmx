@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="RBX3C6AC9E10E734629A19F7E74369C83C8">
+	<Item class="Folder" referent="RBX8B47D006CE344CF6984370A62639B25E">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -10,7 +10,7 @@
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="ModuleScript" referent="RBX213299003680436A81C315BBCD81C1EA">
+		<Item class="ModuleScript" referent="RBX099179173AAA4CEFA360C92019FD8476">
 			<Properties>
 				<Content name="LinkedSource"><null></null></Content>
 				<ProtectedString name="Source"><![CDATA[local GithubAPI = {}
@@ -89,7 +89,7 @@ GithubAPI.Repo.FromElements, GithubAPI.Repo.Validate = newObjectFactory(
 
 function GithubAPI.Repo.FromURL(url)
 	local owner, repoName = string.match(url, "github.com/([^/]+)/([^/]+)")
-	local branch = string.match(url, "github.com/([^/]+)/([^/]+)/tree/([^/]+)")
+	local branch = string.match(url, "github.com/[^/]+/[^/]+/tree/([^/]+)")
 	
 	if branch == nil then branch = "main" end
 	
@@ -101,7 +101,7 @@ function GithubAPI.Repo.FromURL(url)
 end
 
 function GithubAPI.RepoDir.ToString(repoDir)
-	return "[ Github Repo Dir \"" .. repoDir.Path .. "\" in repo \"" .. repoDir.Name .. "\" by \"" .. repoDir.Owner .. "\" ]"
+	return "[ Github Repo Dir \"" .. repoDir.Path .. "\" in repo \"" .. repoDir.Name .. "\" by \"" .. repoDir.Owner .. "\" @ \"" .. repoDir.Branch .. "\" ]"
 end
 
 function GithubAPI.RepoDir.ToContentUrl(repoDir)
@@ -169,7 +169,7 @@ return GithubAPI]]></ProtectedString>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Script" referent="RBX7C48A800AFB24A8584F295394CC18FE0">
+		<Item class="Script" referent="RBX971E73CC75484DC4A7DFC84E2D157C4B">
 			<Properties>
 				<ProtectedString name="Source"><![CDATA[local HttpService = game:GetService("HttpService")
 
@@ -289,7 +289,7 @@ buildBtn.Click:Connect(btn_pressed)]]></ProtectedString>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Folder" referent="RBXA06127A8BC9144918350F45E59AFA49D">
+		<Item class="Folder" referent="RBX1F3E62D00260476D93422A423D70A393">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -298,7 +298,7 @@ buildBtn.Click:Connect(btn_pressed)]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="ModuleScript" referent="RBX7D6E016BA2FF4EF29E260BFA591B1F46">
+			<Item class="ModuleScript" referent="RBXB9D94D19D7E146EBB4A7228A4FB8BDEB">
 				<Properties>
 					<Content name="LinkedSource"><null></null></Content>
 					<ProtectedString name="Source"><![CDATA[local CoreGui = game:GetService("CoreGui")
@@ -425,7 +425,7 @@ return Prompts]]></ProtectedString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Folder" referent="RBXF82CC341A607499E94476AD7C697BB0C">
+			<Item class="Folder" referent="RBXAEA82D3C38A04B0DBA18D948744D0C96">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -434,7 +434,7 @@ return Prompts]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="ModuleScript" referent="RBXD8F9F3156DCD4B9CB3BAF7B74DCD5E28">
+				<Item class="ModuleScript" referent="RBX5BD23CF765A94A90B56166C788321330">
 					<Properties>
 						<Content name="LinkedSource"><null></null></Content>
 						<ProtectedString name="Source"><![CDATA[return {
@@ -724,7 +724,7 @@ return Prompts]]></ProtectedString>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="ModuleScript" referent="RBXCE75D5E6A3244797A12E9B9C40465FAD">
+				<Item class="ModuleScript" referent="RBX4592E81DBB6D4CBF980A1FB5E17E56B8">
 					<Properties>
 						<Content name="LinkedSource"><null></null></Content>
 						<ProtectedString name="Source"><![CDATA[return {
@@ -749,7 +749,7 @@ return Prompts]]></ProtectedString>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="ModuleScript" referent="RBXFC9B14BF4AE84518825BE8B34E203EEF">
+				<Item class="ModuleScript" referent="RBXC40D53FB22D84432B91D25EE82675F2E">
 					<Properties>
 						<Content name="LinkedSource"><null></null></Content>
 						<ProtectedString name="Source"><![CDATA[local loader = {}
@@ -796,7 +796,7 @@ return loader]]></ProtectedString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Folder" referent="RBX812F7621057743BBB99DAAC8B01F5AFF">
+			<Item class="Folder" referent="RBXB41287C30C604175A93DCB6A482AC4C1">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -805,7 +805,7 @@ return loader]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="ModuleScript" referent="RBX38A7AECC371B42089863F37DC382C040">
+				<Item class="ModuleScript" referent="RBX285A9F9C9D1945B1AB7950B9F167CA78">
 					<Properties>
 						<Content name="LinkedSource"><null></null></Content>
 						<ProtectedString name="Source"><![CDATA[--[=[
@@ -912,7 +912,7 @@ return G2L["1"]]]></ProtectedString>
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX95814C12B1B042DFB01EF0752680F783">
+		<Item class="Folder" referent="RBXB14B9583389B46F6978C6B296D2168CB">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -921,7 +921,7 @@ return G2L["1"]]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="ModuleScript" referent="RBX0BFAD3E32D4248269EE3F9086AA4CE3C">
+			<Item class="ModuleScript" referent="RBXDE60AB7A4BB44791A67DB3888DE7FBCA">
 				<Properties>
 					<Content name="LinkedSource"><null></null></Content>
 					<ProtectedString name="Source"><![CDATA[-- This file is used to convert the "SpongeSuite" stylesheet into a module for upload to github as code
@@ -1014,7 +1014,7 @@ return styleWriter]]></ProtectedString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="ModuleScript" referent="RBX55D427FF3EDB4FCFAB745C423E8B552C">
+			<Item class="ModuleScript" referent="RBX463ED3B9366C49C191A77A8AD00E0409">
 				<Properties>
 					<Content name="LinkedSource"><null></null></Content>
 					<ProtectedString name="Source"><![CDATA[local TableWriter = {}
